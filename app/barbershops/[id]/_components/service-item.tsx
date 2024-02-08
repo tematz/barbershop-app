@@ -17,7 +17,7 @@ import {
 } from '@/app/_components/ui/sheet'
 import { Calendar } from '@/app/_components/ui/calendar'
 import { ptBR } from 'date-fns/locale'
-import { format, setHours, setMinutes } from 'date-fns'
+import { addDays, format, setHours, setMinutes } from 'date-fns'
 import { saveBooking } from '../_actions/save-booking'
 import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
@@ -174,7 +174,7 @@ const ServiceItem = ({
                       selected={date}
                       onSelect={handleDateClick}
                       locale={ptBR}
-                      fromDate={new Date()}
+                      fromDate={addDays(new Date(), 1)}
                       styles={{
                         head_cell: {
                           width: '100%',
